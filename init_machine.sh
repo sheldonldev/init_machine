@@ -1,5 +1,10 @@
 #!/bin/bash
 
+sudo apt -y update
+sudo apt -y install proxychains
+apt install -y build-essential
+
+source ~/.bashrc
 # Check if conda command is available
 if ! command -v conda &>/dev/null; then
     echo "conda not found. Installing miniconda..."

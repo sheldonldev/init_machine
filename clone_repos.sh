@@ -22,7 +22,9 @@ clone_repo() {
 
 max_retries=3
 git config --global http.version HTTP/1.1
+clone_repo $max_retries git@github.com:sheldonldev/clash.git clash
 clone_repo $max_retries git@github.com:sheldonldev/swift.git swift
 clone_repo $max_retries git@github.com:sheldonldev/swift_workspace.git swift_workspace
 
 echo "Done!"
+
