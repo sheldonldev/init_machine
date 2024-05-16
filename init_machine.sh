@@ -1,5 +1,8 @@
 #!/bin/bash
 
+user_name=sheldonldev
+user_email=xiadanli0320@gmail.com
+
 sudo apt -y update
 sudo apt -y install proxychains
 apt install -y build-essential
@@ -33,41 +36,14 @@ else
 fi
 
 # install my dev tools
-clone_repo() {
-    local max_retries=$1
-    local repo_url=$2
-    local repo_name=$3
-    if [ ! -d "$HOME/$repo_name" ]; then
-        local retry=0
-        while [ $retry -lt $max_retries ]; do
-            git clone $repo_url && break
-            retry=$((retry + 1))
-            echo "Retry: $retry"
-            sleep 3
-        done
-        if [ ! -d "$HOME/$repo_name" ]; then
-            echo "$repo_name clone FAILED!"
-        else
-            echo "$repo_name clone successfully."
-        fi
-    else
-        echo "$repo_name already exists."
-    fi
-}
-
-apt install tmux proxychains
-
 max_retries=3
-git config --global http.version HTTP/1.1
-clone_repo $max_retries https://github.com/sheldonldev/jampy_cli.git jampy_cli
-clone_repo $max_retries https://github.com/sheldonldev/jampy_util_common.git jampy_util_common
 
-conda create -n jam python=3.10 -y
-conda run -n jam pip install -e "$HOME/jampy_cli"
-conda run -n jam pip install -e "$HOME/jampy_util_common"
+git config --global user.name $user_name
+git config --global user.email $user_email
 
-echo "Generating SSH-KEY..."
-conda run -n jam jam git ia
+ssh-keygen -t rsa -C $user_email
+cat ~/.ssh/id_rsa.pub
 
 echo ">>> Finished. Do following steps manually >>>"
 echo "  - add SSH-KEY to your remote repo."
+echo "  - modify and run 'clone_repos.sh' for your target repos."
