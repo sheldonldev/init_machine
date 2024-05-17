@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ($pwd)/_clone_repo.sh
+source $(pwd)/func/clone_repo.sh
 
 user_name=sheldonldev
 user_email=xiadanli0320@gmail.com
@@ -43,8 +43,6 @@ else
 fi
 
 # install my dev tools
-max_retries=3
-
 git config --global user.name $user_name
 git config --global user.email $user_email
 

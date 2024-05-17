@@ -1,11 +1,11 @@
 clone_repo() {
-    local max_retries=$1
-    local repo_url=$2
-    if [ -z $3 ]; then
+    local repo_url=$1
+    if [ -z $2 ]; then
         local repo_name=$(basename -s .git "$repo_url")
     else
-        local repo_name=$3
+        local repo_name=$2
     fi
+    local max_retries=3
     if [ ! -d "$HOME/$repo_name" ]; then
         local retry=0
         while [ $retry -lt $max_retries ]; do
@@ -23,4 +23,3 @@ clone_repo() {
         echo "$HOME/$repo_name already exists."
     fi
 }
-max_retries=3
