@@ -26,10 +26,14 @@ else
     pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
 fi
 
+
+
 echo ">>> Installing flash-attn..."
 pip install ninja # 加速 flash_attn 编译, 和CPU核数有关
 
 # 可选版本号：https://github.com/Dao-AILab/flash-attention/releases?page=2
-proxychains pip install flash-attn==2.5.8 \
+export http_proxy=127.0.0.1:7890
+export http_proxy=127.0.0.1:7891
+pip install flash-attn==2.5.8 \
     --no-build-isolation \
     --verbos

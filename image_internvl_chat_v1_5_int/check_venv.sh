@@ -1,3 +1,5 @@
+#!/bin/bash
+
 echo_package() {
     keyword=$1
 
