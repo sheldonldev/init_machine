@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source _clone_repo.sh
+
 user_name=sheldonldev
 user_email=xiadanli0320@gmail.com
 
@@ -43,7 +45,5 @@ git config --global user.email $user_email
 
 ssh-keygen -t rsa -C $user_email
 cat ~/.ssh/id_rsa.pub
+echo ">>> Please add above SSH-KEY to your remote repo."
 
-echo ">>> Finished. Do following steps manually >>>"
-echo "  - add SSH-KEY to your remote repo."
-echo "  - modify and run 'clone_repos.sh' for your target repos."
