@@ -11,12 +11,12 @@ clone_repo() {
             sleep 3
         done
         if [ ! -d "$HOME/$repo_name" ]; then
-            echo "$repo_name clone FAILED!"
+            echo "repo $repo_name clone FAILED!"
         else
-            echo "$repo_name clone successfully."
+            echo "repo $repo_name clone successfully."
         fi
     else
-        echo "$repo_name already exists."
+        echo "$HOME/$repo_name already exists."
     fi
 }
 max_retries=3
