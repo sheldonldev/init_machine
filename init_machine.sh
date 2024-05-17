@@ -7,9 +7,13 @@ user_email=xiadanli0320@gmail.com
 
 sudo apt -y update
 sudo apt -y install proxychains
-apt install -y build-essential
+sudo apt -y install build-essential
+sudo apt -y install locales
+
+sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
 
 source ~/.bashrc
+
 # Check if conda command is available
 if ! command -v conda &>/dev/null; then
     echo "conda not found. Installing miniconda..."
