@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source _clone_repo.sh
+source ($pwd)/_clone_repo.sh
 
 user_name=sheldonldev
 user_email=xiadanli0320@gmail.com
@@ -8,9 +8,10 @@ user_email=xiadanli0320@gmail.com
 sudo apt -y update
 sudo apt -y install proxychains
 sudo apt -y install build-essential
-sudo apt -y install locales
+sudo apt -y install locales tzdata
 
 sudo update-locale LANG=en_US.UTF-8 LC_ALL=en_US.UTF-8
+sudo dpkg-reconfigure -f noninteractive tzdata
 
 source ~/.bashrc
 

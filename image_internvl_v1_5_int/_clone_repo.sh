@@ -1,7 +1,7 @@
 clone_repo() {
     local max_retries=$1
     local repo_url=$2
-    if [ -z repo_name]; then
+    if [ -z $3 ]; then
         local repo_name=$(basename -s .git "$repo_url")
     else
         local repo_name=$3
