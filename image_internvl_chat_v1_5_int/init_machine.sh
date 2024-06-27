@@ -49,4 +49,3 @@ git config --global user.email $user_email
 ssh-keygen -t rsa -C $user_email
 cat ~/.ssh/id_rsa.pub
 echo ">>> Please add above SSH-KEY to your remote repo."
-
